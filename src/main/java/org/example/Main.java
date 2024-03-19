@@ -10,6 +10,7 @@ import Poblaciones.SimuladorEcosistema;
 
 public class Main {
     public static void main(String[] args) {
+
         // Crear instancias de animales y plantas
         Animal leon = new Animal("León", 1, 1, true);
         Animal zebra = new Animal("Zebra", 2, 2, true);

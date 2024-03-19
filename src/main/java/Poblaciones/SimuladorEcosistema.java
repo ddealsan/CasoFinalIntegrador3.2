@@ -47,10 +47,30 @@ public class SimuladorEcosistema {
         // Implementar lógica para simular interacciones naturales entre especies (predación, competencia, polinización, etc.)
         Random random = new Random();
 
+
         // Simular predación (ejemplo)
-        if (random.nextDouble() < 0.5) { // Probabilidad del 50%
-            leon.depredar(zebra); // El león depreda a la cebra
+        if (random.nextDouble() < 0.9) { // Probabilidad del 50%
+            if (distanciaEntreAnimales(leon, zebra) < 3) {
+                leon.depredar(zebra);
+            }
         }
+
+        // Simular consumo de hierba por parte de la Zebra
+        if (distanciaEntreAnimalYPlanta(zebra, hierba) <= 1) {
+            zebra.comer();
+            hierba.serComida();
+        }
+
+    }
+    private double distanciaEntreAnimalYPlanta(Animal animal, Planta planta) {
+        int distanciaX = Math.abs(animal.getPosicionX() - planta.getPosicionX());
+        int distanciaY = Math.abs(animal.getPosicionY() - planta.getPosicionY());
+        return Math.sqrt(distanciaX * distanciaX + distanciaY * distanciaY);
+    }
+    private double distanciaEntreAnimales(Animal animal1, Animal animal2) {
+        int deltaX = animal1.getPosicionX() - animal2.getPosicionX();
+        int deltaY = animal1.getPosicionY() - animal2.getPosicionY();
+        return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
     }
 
     private void simularCrecimientoYReproduccion() {

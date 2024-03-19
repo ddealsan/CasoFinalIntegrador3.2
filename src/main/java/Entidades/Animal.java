@@ -77,4 +77,27 @@ public class Animal {
             System.out.println("El " + this.especie + " está cazando a la " + presa.getEspecie() + ".");
         }
     }
+    public void comer(Planta planta) {
+        // Verificar si la planta está cerca del animal (supongamos una distancia máxima de 1 unidad)
+        if (distanciaEntreAnimales(this, planta) <= 1) {
+            // Incrementar la salud del animal al consumir la planta
+            salud += 10; // Ajusta este valor según sea necesario
+            System.out.println("La " + especie + " ha comido la " + planta.getEspecie() + ".");
+        } else {
+            System.out.println("La " + especie + " no puede alcanzar la " + planta.getEspecie() + ".");
+        }
+    }
+
+    private int distanciaEntreAnimales(Animal animal, Planta planta) {
+        // Implementar cálculo de distancia entre dos entidades en el ecosistema
+        int distanciaX = Math.abs(animal.getPosicionX() - planta.getPosicionX());
+        int distanciaY = Math.abs(animal.getPosicionY() - planta.getPosicionY());
+        return distanciaX + distanciaY;
+    }
+
+    public void comer() {
+        // Implementación de la lógica para que el animal coma
+        this.salud += 20; // Incrementamos la salud del animal al comer
+        System.out.println("El " + this.especie + " ha comido y su salud ha aumentado.");
+    }
 }

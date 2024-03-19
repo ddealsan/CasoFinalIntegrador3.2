@@ -67,4 +67,13 @@ public class Planta {
     public void incrementarEdad() {
         this.edad++;
     }
+    public void serComida() {
+        // Implementación de la lógica para que la planta sea comida
+        this.salud -= 20; // Reducimos la salud de la planta cuando es comida
+        if (this.salud <= 0) {
+            // La planta muere si su salud llega a cero
+            System.out.println("La planta de " + this.especie + " ha sido consumida completamente.");
+        }
+    }
+
 }
