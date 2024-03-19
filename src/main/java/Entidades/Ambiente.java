@@ -5,10 +5,14 @@ public class Ambiente {
     private String terreno;
     private int recursosDisponibles;
 
-    public Ambiente(String clima, String terreno, String recursosDisponibles) {
+    public Ambiente(String clima, String terreno, int recursosDisponibles) {
         this.clima = clima;
         this.terreno = terreno;
-        this.recursosDisponibles = Integer.parseInt(recursosDisponibles);
+        this.recursosDisponibles = Integer.parseInt(String.valueOf(recursosDisponibles));
+    }
+
+    public Ambiente(String savannah, String caluroso, String seco) {
+
     }
 
     public void cambiarClima(String nuevoClima) {
