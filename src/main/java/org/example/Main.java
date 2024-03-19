@@ -39,7 +39,7 @@ public class Main {
             registroActividades.registrarSimulacion("Configuración", "Resultados");
             registroActividades.limpiarRegistro();
 
-            // Visualizar datos de la simulación
+            // Visualizar datos de la simulación3
             simulador.simularEcosistema();
         } else if (opcion == 3) {
             // Salir del programa
