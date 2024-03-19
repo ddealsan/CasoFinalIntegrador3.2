@@ -4,24 +4,52 @@ public class Ambiente {
     private String clima;
     private String terreno;
     private int recursosDisponibles;
+    private int posicionHierbaX;
+    private int posicionHierbaY;
 
     public Ambiente(String clima, String terreno, int recursosDisponibles) {
         this.clima = clima;
         this.terreno = terreno;
-        this.recursosDisponibles = Integer.parseInt(String.valueOf(recursosDisponibles));
+        this.recursosDisponibles = recursosDisponibles;
     }
 
-    public Ambiente(String savannah, String caluroso, String seco) {
-
+    public String getClima() {
+        return clima;
     }
 
-    public void cambiarClima(String nuevoClima) {
-        this.clima = nuevoClima;
+    public void setClima(String clima) {
+        this.clima = clima;
     }
 
-    public void cambiarRecursosDisponibles(int nuevosRecursos) {
-        this.recursosDisponibles = nuevosRecursos;
+    public String getTerreno() {
+        return terreno;
     }
 
-    // Otros métodos y getters/setters según sea necesario
+    public void setTerreno(String terreno) {
+        this.terreno = terreno;
+    }
+
+    public int getRecursosDisponibles() {
+        return recursosDisponibles;
+    }
+
+    public void setRecursosDisponibles(int recursosDisponibles) {
+        this.recursosDisponibles = recursosDisponibles;
+    }
+
+    public int getPosicionHierbaX() {
+        return posicionHierbaX;
+    }
+
+    public void setPosicionHierbaX(int posicionHierbaX) {
+        this.posicionHierbaX = posicionHierbaX;
+    }
+
+    public int getPosicionHierbaY() {
+        return posicionHierbaY;
+    }
+
+    public void setPosicionHierbaY(int posicionHierbaY) {
+        this.posicionHierbaY = posicionHierbaY;
+    }
 }
