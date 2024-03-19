@@ -4,42 +4,91 @@ import Entidades.Ambiente;
 import Entidades.Animal;
 import Entidades.Planta;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class SimuladorEcosistema {
-    private List<Animal> poblacionAnimales;
-    private List<Planta> poblacionPlantas;
+    private Animal leon;
+    private Animal zebra;
+    private Planta hierba;
+    private Planta arbusto;
     private Ambiente ambiente;
 
-    public SimuladorEcosistema() {
-        poblacionAnimales = new ArrayList<>();
-        poblacionPlantas = new ArrayList<>();
-        ambiente = new Ambiente("Normal", "Bosque", 100); // Ejemplo de ambiente inicial
-        // Agregar animales y plantas iniciales al ecosistema
-        inicializarEcosistema();
+    public SimuladorEcosistema(Animal leon, Animal zebra, Planta hierba, Planta arbusto, Ambiente ambiente) {
+        this.leon = leon;
+        this.zebra = zebra;
+        this.hierba = hierba;
+        this.arbusto = arbusto;
+        this.ambiente = ambiente;
     }
 
-    private void inicializarEcosistema() {
-        // Lógica para agregar animales y plantas iniciales al ecosistema
+    public void simularEcosistema() {
+        System.out.println("Estado del ecosistema:");
+        System.out.println("Ambiente: " + ambiente.getClima() + ", " + ambiente.getTerreno() + ", Recursos disponibles: " + ambiente.getRecursosDisponibles());
+
+        System.out.println("Animales:");
+        System.out.println("León - Posición: (" + leon.getPosicionX() + ", " + leon.getPosicionY() + "), Salud: " + leon.getSalud() + ", Edad: " + leon.getEdad() + ", Estado reproductivo: " + leon.isEstadoReproductivo());
+        System.out.println("Zebra - Posición: (" + zebra.getPosicionX() + ", " + zebra.getPosicionY() + "), Salud: " + zebra.getSalud() + ", Edad: " + zebra.getEdad() + ", Estado reproductivo: " + zebra.isEstadoReproductivo());
+
+        System.out.println("Plantas:");
+        System.out.println("Hierba - Posición: (" + hierba.getPosicionX() + ", " + hierba.getPosicionY() + "), Salud: " + hierba.getSalud() + ", Edad: " + hierba.getEdad() + ", Estado reproductivo: " + hierba.isEstadoReproductivo());
+        System.out.println("Arbusto - Posición: (" + arbusto.getPosicionX() + ", " + arbusto.getPosicionY() + "), Salud: " + arbusto.getSalud() + ", Edad: " + arbusto.getEdad() + ", Estado reproductivo: " + arbusto.isEstadoReproductivo());
+
+        // Simular interacciones naturales
+        simularInteraccionesNaturales();
+
+        // Simular crecimiento y reproducción
+        simularCrecimientoYReproduccion();
+
+        // Simular eventos aleatorios
+        simularEventosAleatorios();
     }
 
-    public void simularCrecimientoYReproduccion() {
-        // Implementar algoritmos para el crecimiento de la población y la reproducción de las especies
-    }
-
-    public void simularEventosAleatorios() {
-        // Introducir eventos aleatorios que afecten a las poblaciones
+    private void simularInteraccionesNaturales() {
+        // Implementar lógica para simular interacciones naturales entre especies (predación, competencia, polinización, etc.)
         Random random = new Random();
-        // Ejemplo de evento aleatorio de enfermedad
-        if (random.nextDouble() < 0.1) { // Probabilidad del 10%
+
+        // Simular predación (ejemplo)
+        if (random.nextDouble() < 0.5) { // Probabilidad del 50%
+            leon.depredar(zebra); // El león depreda a la cebra
+        }
+    }
+
+    private void simularCrecimientoYReproduccion() {
+        // Implementar algoritmos para el crecimiento de la población y la reproducción de las especies
+        // Por simplicidad, se puede suponer un crecimiento y reproducción básicos
+        leon.incrementarEdad();
+        zebra.incrementarEdad();
+        hierba.incrementarEdad();
+        arbusto.incrementarEdad();
+
+        if (leon.getEdad() >= 3 && leon.getSalud() >= 50) {
+            leon.setEstadoReproductivo(true);
+        }
+
+        if (zebra.getEdad() >= 2 && zebra.getSalud() >= 40) {
+            zebra.setEstadoReproductivo(true);
+        }
+
+        if (hierba.getEdad() >= 1) {
+            hierba.setEstadoReproductivo(true);
+        }
+
+        if (arbusto.getEdad() >= 2) {
+            arbusto.setEstadoReproductivo(true);
+        }
+    }
+
+    private void simularEventosAleatorios() {
+        // Implementar eventos aleatorios que afecten a las poblaciones, como desastres naturales, enfermedades, etc.
+        Random random = new Random();
+        // Ejemplo de evento aleatorio de enfermedad (probabilidad del 10%)
+        if (random.nextDouble() < 0.1) {
             // Lógica para simular la enfermedad
+            leon.setSalud(leon.getSalud() - 20); // Reducir la salud del león debido a la enfermedad
+            if (leon.getSalud() <= 0) {
+                System.out.println("¡El león ha muerto debido a una enfermedad!");
+            }
         }
         // Otros eventos aleatorios como desastres naturales, cambios climáticos, etc.
-    }
-
-    public void calcularEstadisticas() {
-        // Calcular y presentar estadísticas sobre la salud del ecosistema y las tendencias poblacionales
     }
 }
