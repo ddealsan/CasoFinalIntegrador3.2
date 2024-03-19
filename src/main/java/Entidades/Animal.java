@@ -18,16 +18,14 @@ public class Animal {
     }
 
     public void mover(int nuevaPosX, int nuevaPosY) {
+        // Implementación de la lógica para el movimiento del animal
         this.posicionX = nuevaPosX;
         this.posicionY = nuevaPosY;
     }
 
     public void comer() {
-        // Implementación de la lógica para comer
-    }
-
-    public void reproducirse() {
-        // Implementación de la lógica para reproducirse
+        // Implementación de la lógica para la alimentación del animal
+        this.salud += 10; // Incremento arbitrario en la salud después de comer
     }
 
     // Otros métodos y getters/setters según sea necesario
