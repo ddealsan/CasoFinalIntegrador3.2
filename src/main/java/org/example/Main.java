@@ -12,6 +12,9 @@ import analisis_avanzado.VisualizacionDatos;
 import analisis_avanzado.IntegracionNuevasFunciones;
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
+        // Crear instancias de plantas y animales
+        Animal leon = new Animal("León", 1, 100, true);
+        Animal zebra = new Animal("Zebra", 2, 80, true);
+        Planta hierba = new Planta("Hierba", 1, 50, true);
+        Planta arbusto = new Planta("Arbusto", 2, 70, true);
 }
