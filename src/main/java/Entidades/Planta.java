@@ -28,5 +28,16 @@ public class Planta {
         this.estadoReproductivo = true;
     }
 
-    // Otros métodos y getters/setters según sea necesario
+    public void polinizar(Planta otraPlanta) {
+        // Simulación de la polinización
+        if (this.estadoReproductivo && otraPlanta.estadoReproductivo) {
+            System.out.println("¡Las plantas de " + this.especie + " y " + otraPlanta.getEspecie() + " están polinizando!");
+        } else {
+            System.out.println("Las plantas no están en estado reproductivo para polinizar.");
+        }
+    }
+
+    private String getEspecie() {
+        return this.especie;
+    }
 }
