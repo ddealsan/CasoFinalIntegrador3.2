@@ -11,8 +11,7 @@ public class InterfazUsuario {
 
     public void mostrarMenu() {
         System.out.println("Bienvenido al Simulador de Dinámicas Poblacionales");
-        System.out.println("1. Configurar simulación");
-        System.out.println("2. Controlar simulación en curso");
+        System.out.println("1. observar simulación");
         System.out.println("3. Salir");
         System.out.println("Por favor, seleccione una opción:");
     }
