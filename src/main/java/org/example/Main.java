@@ -28,7 +28,7 @@ public class Main {
         interfazUsuario.mostrarMenu();
         int opcion = interfazUsuario.leerOpcion();
 
-        // Realizar acción según la opción seleccionada
+        // Realizar acción según la opción seleccionad
         if (opcion == 1) {
             // Configurar simulación
             Autenticacion autenticacion = new Autenticacion();
