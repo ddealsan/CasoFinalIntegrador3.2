@@ -1,74 +1,59 @@
 package org.example;
 
-import gestion.Autenticacion;
+import Entidades.Animal;
+import Entidades.Planta;
+import Entidades.Ambiente;
+import Poblaciones.SimuladorEcosistema;
 import gestion.InterfazUsuario;
+import gestion.Autenticacion;
 import gestion.RegistroActividades;
 import analisis_avanzado.ResolucionProblemas;
 import analisis_avanzado.VisualizacionDatos;
 import analisis_avanzado.IntegracionNuevasFunciones;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Autenticacion autenticacion = new Autenticacion();
+        // Crear instancias de plantas y animales
+        Animal leon = new Animal("León", 1, 100, true);
+        Animal zebra = new Animal("Zebra", 2, 80, true);
+        Planta hierba = new Planta("Hierba", 1, 50, true);
+        Planta arbusto = new Planta("Arbusto", 2, 70, true);
+
+        // Crear instancia de ambiente
+        Ambiente ambiente = new Ambiente("Savannah", "Caluroso", "Seco");
+
+        // Crear instancia de simulador de ecosistema y realizar simulación
+        SimuladorEcosistema simulador = new SimuladorEcosistema();
+        simulador.simularCrecimientoYReproduccion();
+        simulador.simularEventosAleatorios();
+        simulador.calcularEstadisticas();
+
+        // Interacción con la interfaz de usuario
         InterfazUsuario interfazUsuario = new InterfazUsuario();
+        interfazUsuario.mostrarMenu();
+        interfazUsuario.configurarSimulacion();
+        interfazUsuario.controlarSimulacion();
+
+        // Autenticación de usuario
+        Autenticacion autenticacion = new Autenticacion();
+        autenticacion.autenticar("usuario", "contraseña");
+        autenticacion.cerrarSesion();
+
+        // Registro de actividades
         RegistroActividades registroActividades = new RegistroActividades();
+        registroActividades.registrarSimulacion("Configuración", "Resultados");
+        registroActividades.obtenerSimulacionesAnteriores();
+        registroActividades.limpiarRegistro();
+
+        // Análisis avanzado
         ResolucionProblemas resolucionProblemas = new ResolucionProblemas();
+        resolucionProblemas.buscarEquilibriosEcologicos();
+        resolucionProblemas.evaluarEstrategiasConservacion();
+
         VisualizacionDatos visualizacionDatos = new VisualizacionDatos();
+        visualizacionDatos.visualizarDatosSimulacion(new double[]{1.2, 3.4, 5.6});
+
         IntegracionNuevasFunciones integracionNuevasFunciones = new IntegracionNuevasFunciones();
-
-        System.out.println("¡Bienvenido al Simulador de Ecosistema Inteligente!");
-
-        // Iniciar sesión
-        System.out.print("Ingrese su nombre de usuario: ");
-        String usuario = scanner.nextLine();
-        System.out.print("Ingrese su contraseña: ");
-        String contrasena = scanner.nextLine();
-
-        if (!autenticacion.autenticar(usuario, contrasena)) {
-            System.out.println("Credenciales incorrectas. Saliendo del programa.");
-            return;
-        }
-        System.out.println("Inicio de sesión exitoso.");
-
-        // Mostrar menú de opciones
-        int opcion;
-        do {
-            interfazUsuario.mostrarMenu();
-            System.out.print("Ingrese una opción: ");
-            opcion = scanner.nextInt();
-            switch (opcion) {
-                case 1:
-                    // Lógica para configurar la simulación
-                    break;
-                case 2:
-                    // Lógica para controlar la simulación
-                    break;
-                case 3:
-                    registroActividades.registrarSimulacion("Configuración", "Resultados");
-                    registroActividades.obtenerSimulacionesAnteriores();
-                    registroActividades.limpiarRegistro();
-                    break;
-                case 4:
-                    resolucionProblemas.buscarEquilibriosEcologicos();
-                    resolucionProblemas.evaluarEstrategiasConservacion();
-                    break;
-                case 5:
-                    visualizacionDatos.visualizarDatosSimulacion(new double[]{1.2, 3.4, 5.6});
-                    break;
-                case 6:
-                    integracionNuevasFunciones.integrarNuevosModelos();
-                    break;
-                case 7:
-                    System.out.println("Saliendo del programa. ¡Hasta luego!");
-                    break;
-                default:
-                    System.out.println("Opción no válida. Por favor, ingrese una opción válida.");
-            }
-        } while (opcion != 7);
-
-        scanner.close();
+        integracionNuevasFunciones.integrarNuevosModelos();
     }
 }
