@@ -5,7 +5,7 @@ public class Ambiente {
     private String terreno;
     private int recursosDisponibles;
 
-    public Ambiente(String clima, String terreno, int recursosDisponibles) {
+    public Ambiente(String clima, String terreno, String recursosDisponibles) {
         this.clima = clima;
         this.terreno = terreno;
         this.recursosDisponibles = recursosDisponibles;

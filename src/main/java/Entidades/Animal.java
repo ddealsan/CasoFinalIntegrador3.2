@@ -8,7 +8,7 @@ public class Animal {
     private int edad;
     private boolean estadoReproductivo;
 
-    public Animal(String especie, int posicionX, int posicionY) {
+    public Animal(String especie, int posicionX, int posicionY, boolean b) {
         this.especie = especie;
         this.posicionX = posicionX;
         this.posicionY = posicionY;

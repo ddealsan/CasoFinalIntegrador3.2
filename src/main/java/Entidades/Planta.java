@@ -8,7 +8,7 @@ public class Planta {
     private int edad;
     private boolean estadoReproductivo;
 
-    public Planta(String especie, int posicionX, int posicionY) {
+    public Planta(String especie, int posicionX, int posicionY, boolean b) {
         this.especie = especie;
         this.posicionX = posicionX;
         this.posicionY = posicionY;
